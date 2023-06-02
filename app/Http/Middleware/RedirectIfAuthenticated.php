@@ -27,6 +27,11 @@ class RedirectIfAuthenticated
             }
         }
 
+        // ここから追加
+        if (Auth::guard('admins')->check() && $request->routeIs('admin.*')) {
+            return redirect(RouteServiceProvider::ADMIN_HOME);
+        }
+        // ここまで追加
         return $next($request);
     }
 }

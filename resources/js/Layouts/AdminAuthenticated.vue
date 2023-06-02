@@ -5,7 +5,7 @@ import BreezeDropdown from '@/Components/Dropdown.vue';
 import BreezeDropdownLink from '@/Components/DropdownLink.vue';
 import BreezeNavLink from '@/Components/NavLink.vue';
 import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-import { Link } from '@inertiajs/vue3';
+import { Link } from '@inertiajs/inertia-vue3';
 
 const showingNavigationDropdown = ref(false);
 </script>
@@ -20,14 +20,14 @@ const showingNavigationDropdown = ref(false);
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link :href="route('admin.dashboard')">
                                     <BreezeApplicationLogo class="block w-20" />
                                 </Link>
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                <BreezeNavLink :href="route('admin.dashboard')" :active="route().current('admin.dashboard')">
                                     Dashboard
                                 </BreezeNavLink>
 
@@ -37,25 +37,9 @@ const showingNavigationDropdown = ref(false);
                                 </BreezeNavLink>
                                 google visoin api 追加 ここまで-->
 
-                                <BreezeNavLink :href="route('purchases.create')" :active="route().current('purchases.create')">
-                                    購入画面
+                                <BreezeNavLink :href="route('admin.items.index')" :active="route().current('admin.items.index')">
+                                    商品管理
                                 </BreezeNavLink>
-                                <BreezeNavLink :href="route('purchases.index')" :active="route().current('purchases.index')">
-                                    購買履歴
-                                </BreezeNavLink>
-                                <BreezeNavLink :href="route('customers.index')" :active="route().current('customers.index')">
-                                    顧客管理
-                                </BreezeNavLink>
-                                <BreezeNavLink :href="route('analysis')" :active="route().current('analysis')">
-                                    データ分析
-                                </BreezeNavLink>
-
-                                
-                                <!--　CSV追加 ここから -->
-                                <BreezeNavLink :href="route('export')" :active="route().current('export')">
-                                    CSV出力
-                                </BreezeNavLink>
-                                <!-- CSV追加 ここまで-->
 
                             </div>
                         </div>
@@ -77,7 +61,7 @@ const showingNavigationDropdown = ref(false);
                                     </template>
 
                                     <template #content>
-                                        <BreezeDropdownLink :href="route('logout')" method="post" as="button">
+                                        <BreezeDropdownLink :href="route('admin.logout')" method="post" as="button">
                                             Log Out
                                         </BreezeDropdownLink>
                                     </template>
@@ -100,28 +84,12 @@ const showingNavigationDropdown = ref(false);
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <BreezeResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                        <BreezeResponsiveNavLink :href="route('admin.dashboard')" :active="route().current('admin.dashboard')">
                             Dashboard
                         </BreezeResponsiveNavLink>
-                        <BreezeResponsiveNavLink :href="route('purchases.create')" :active="route().current('purchases.create')">
-                            購入画面
+                        <BreezeResponsiveNavLink :href="route('admin.items.index')" :active="route().current('admin.items.index')">
+                            商品管理
                         </BreezeResponsiveNavLink>
-                        <BreezeResponsiveNavLink :href="route('purchases.index')" :active="route().current('purchases.index')">
-                            購買履歴
-                        </BreezeResponsiveNavLink>
-                        <BreezeResponsiveNavLink :href="route('customers.index')" :active="route().current('customer.index')">
-                            顧客管理
-                        </BreezeResponsiveNavLink>
-                        <BreezeResponsiveNavLink :href="route('analysis')" :active="route().current('analysis')">
-                            データ分析
-                        </BreezeResponsiveNavLink>
-
-                        <!--　CSV追加 ここから -->
-                        <BreezeResponsiveNavLink :href="route('export')" :active="route().current('export')">
-                            CSV出力
-                        </BreezeResponsiveNavLink>
-                         <!--　CSV追加 ここまで -->
-
                     </div>
 
                     <!-- Responsive Settings Options -->
@@ -132,7 +100,7 @@ const showingNavigationDropdown = ref(false);
                         </div>
 
                         <div class="mt-3 space-y-1">
-                            <BreezeResponsiveNavLink :href="route('logout')" method="post" as="button">
+                            <BreezeResponsiveNavLink :href="route('admin.logout')" method="post" as="button">
                                 Log Out
                             </BreezeResponsiveNavLink>
                         </div>

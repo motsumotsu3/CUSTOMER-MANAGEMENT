@@ -34,6 +34,4 @@ class CustomerFactory extends Factory
     }
 }
 
-// Fakerのnameメソッドは、日本語の氏名をランダムに生成しますが、kanaNameメソッドはひらがな表記の氏名をランダムに生成します。よって、nameとkanaNameの読み方を一致させることはできません。
-
-// 色々と試行錯誤したが上手くいかなかった
+//Fakerのnameメソッドは、日本語の氏名をランダムに生成しますが、kanaNameメソッドはひらがな表記の氏名をランダムに生成します。よって、nameとkanaNameの読み方を一致させることはできません。

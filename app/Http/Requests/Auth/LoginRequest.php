@@ -45,7 +45,15 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        // ここから追加
+        if ($this->routeIs('admin.*')) {
+            $guard = 'admins';
+        } else {
+            $guard = 'web';
+        }
+        // ここまで追加
+
+        if (! Auth::guard($guard)->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([

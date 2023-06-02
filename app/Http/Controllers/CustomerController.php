@@ -23,7 +23,7 @@ class CustomerController extends Controller
         // dd($getTest, $getPaginate);
 
         $customers = Customer::searchCustomers($request->search)
-        ->select('id', 'name', 'kana', 'tel')->paginate(50);
+        ->select('id', 'name', 'kana', 'tel', 'email','address', 'postcode')->paginate(50);
 
         // dd($customers);
 
